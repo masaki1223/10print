@@ -10,4 +10,4 @@ How to use:</br>
 
 press 'space' to reset
 
-inspired by <a href='https://10print.org'>10print</a>
+inspired by <a href='https://10print.org'>10print</a> and <a href='https://github.com/shiffman'>Daniel Shiffman</a>
