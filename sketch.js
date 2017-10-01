@@ -4,10 +4,16 @@ let r = 0;
 let g = 0;
 let b = 0;
 let sw = 0; //strokeWeight();
+let randomSwitch = false;
+let button;
+let text;
 
 function setup(){
     createCanvas(800, 500);
     background(51);
+    button = createButton('Random').position(150,520);
+    button.mousePressed(randomMode);
+    text = createP(': inactive').position(220,505);
     //createSliders
     sSlider = createSlider(1,50,10); //spacing slider
     sSlider.position(10, 520);
@@ -22,9 +28,14 @@ function setup(){
 
 }
 function draw(){
+    if(randomSwitch)
+    randomColor();
+    else if(!randomSwitch)
     sliders();
     ten_print();
     ten_print_reverse();
+
+    
 }
 
 let x = 0;
@@ -80,3 +91,31 @@ function keyPressed(){
         background(51);
     }
 }
+
+function randomColor(){
+    r = random(255);
+    b = random(255);
+    g = random(255);
+    space = random(50);
+    // r+=random(3);
+    // b+=random(3);
+    // g+=random(3);
+    // if(r>255){
+    //     r=0;
+    // } else if(b>255){
+    //     b=0;
+    // } else if(g>255){
+    //     g=0;
+    // }
+}
+
+function randomMode(){
+    if(randomSwitch == false){
+    randomSwitch = true;
+    text.elt.innerText = ": active!";
+    }
+    else if(randomSwitch == true){
+    randomSwitch = false;
+    text.elt.innerText = ": inactive";
+    }
+};
