@@ -25,8 +25,8 @@ function setup(){
     bSlider.position(10, 580);
     wSlider = createSlider(1,20,4); //strokeweight slider
     wSlider.position(10, 600);
-
 }
+
 function draw(){
     if(randomSwitch)
     randomColor();
@@ -34,8 +34,6 @@ function draw(){
     sliders();
     ten_print();
     ten_print_reverse();
-
-    
 }
 
 let x = 0;
@@ -86,6 +84,7 @@ var ten_print_reverse = function(){
         y_reverse = 0;
     }
 }
+
 function keyPressed(){
     if(key ==' '){
         background(51);
@@ -96,17 +95,8 @@ function randomColor(){
     r = random(255);
     b = random(255);
     g = random(255);
-    space = random(50);
-    // r+=random(3);
-    // b+=random(3);
-    // g+=random(3);
-    // if(r>255){
-    //     r=0;
-    // } else if(b>255){
-    //     b=0;
-    // } else if(g>255){
-    //     g=0;
-    // }
+    space = random(15,30);
+
 }
 
 function randomMode(){
@@ -118,4 +108,4 @@ function randomMode(){
     randomSwitch = false;
     text.elt.innerText = ": inactive";
     }
-};
+}

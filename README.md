@@ -9,3 +9,5 @@ How to use:</br>
 5th slider is for stroke weight</br>
 
 press 'space' to reset
+
+inspired by <a src='https://10print.org'>10print</a>
