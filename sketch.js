@@ -1,21 +1,41 @@
+let sSlider,rSlider,gSlider,bSlider;
+let space=0;
+let r = 0;
+let g = 0;
+let b = 0;
 
 function setup(){
     createCanvas(500, 500);
     background(51);
     
     //createSliders
-    sSlider = createSlider(1,50,20); //spacing slider
+    sSlider = createSlider(1,50,10); //spacing slider
     sSlider.position(10, 520);
+    rSlider = createSlider(0,255,255); //red slider
+    rSlider.position(10, 540);    
+    gSlider = createSlider(0,255,255); //green slider
+    gSlider.position(10, 560);    
+    bSlider = createSlider(0,255,255); //blue slider
+    bSlider.position(10, 580);
+
+    document.getElementById('r').textContent= ("red")
 }
 function draw(){
+    sliders();
     ten_print();
     ten_print_reverse();
 }
 
 let x = 0;
 let y = 0;
-let space = sSlider.value();
 
+var sliders = function(){
+    space = sSlider.value();
+    r = rSlider.value();
+    g = gSlider.value();
+    b = bSlider.value();
+    fill(0);
+}
 var ten_print = function(){
     
     stroke(255);
