@@ -3,11 +3,11 @@ let space=0;
 let r = 0;
 let g = 0;
 let b = 0;
+let sw = 0; //strokeWeight();
 
 function setup(){
-    createCanvas(500, 500);
+    createCanvas(800, 500);
     background(51);
-    
     //createSliders
     sSlider = createSlider(1,50,10); //spacing slider
     sSlider.position(10, 520);
@@ -17,8 +17,9 @@ function setup(){
     gSlider.position(10, 560);    
     bSlider = createSlider(0,255,255); //blue slider
     bSlider.position(10, 580);
+    wSlider = createSlider(1,20,4); //strokeweight slider
+    wSlider.position(10, 600);
 
-    document.getElementById('r').textContent= ("red")
 }
 function draw(){
     sliders();
@@ -34,11 +35,12 @@ var sliders = function(){
     r = rSlider.value();
     g = gSlider.value();
     b = bSlider.value();
-    fill(0);
+    sw = wSlider.value();
 }
 var ten_print = function(){
     
-    stroke(255);
+    stroke(r,g,b);
+    strokeWeight(sw);
     if(random(1) < 0.5){
     line( x, y, x+space, y+space);
     } else{
@@ -48,6 +50,8 @@ var ten_print = function(){
     if(x>width){
         x = 0;
         y += space;
+    } else if(y>height){
+        y = 0;
     }
 }
 
@@ -56,7 +60,8 @@ let y_reverse = 0;
 
 var ten_print_reverse = function(){
     translate(width,height);
-    stroke(255);
+    stroke(r,g,b);
+    strokeWeight(sw);
     if(random(1) < 0.5){
     line( x_reverse, y_reverse, x_reverse-space, y_reverse-space);
     } else{
@@ -66,5 +71,12 @@ var ten_print_reverse = function(){
     if(x_reverse<-width){
         x_reverse = 0;
         y_reverse -= space;
+    } else if(y_reverse<-height){
+        y_reverse = 0;
+    }
+}
+function keyPressed(){
+    if(key ==' '){
+        background(51);
     }
 }
